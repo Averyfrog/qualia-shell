@@ -32,16 +32,18 @@ ShellRoot {
     StyledMenu { 
       id: testMenu
       StyledMenuItem { text: 'Lock'; gIcon: 'lock'; hoverColor: colors.green }
-      StyledMenuItem { text: 'Sleep'; gIcon: 'moon_stars'; hoverColor: colors.yellow }
+      StyledMenuItem { text: 'Sleep'; gIcon: 'moon_stars'; hoverColor: colors.yellow; onClicked: sleep.running = true }
+      Process { id: sleep; running: false; command: ["systemctl", "suspend" ] }
       StyledMenuItem { text: 'Log Out'; gIcon: 'logout'; hoverColor: colors.blue }
       StyledMenuItem { text: 'Power Off'; gIcon: 'power_settings_new'; color: colors.red; hoverColor: color }
       StyledMenuSeperator {}
         StyledMenu {
           title: 'More..'
-          Process { id: termExec; running: false; command: ["hyprctl", "dispatch", "exec", "kitty"] }
 
-          StyledMenuItem { text: 'New terminal Session'; gIcon: 'terminal'; onClicked: termExec.running = true }
-          StyledMenuItem { text: 'Exit Quickshell'; gIcon: '' }
+          StyledMenuItem { text: 'New terminal Session'; gIcon: 'terminal'; hoverColor: colors.blue; onClicked: termExec.running = true }
+          Process { id: termExec; running: false; command: ["hyprctl", "dispatch", "exec", "kitty"] }
+          StyledMenuItem { text: 'Exit Quickshell'; gIcon: 'computer_cancel'; color: colors.red; hoverColor: color; onClicked: killQs.running = true }
+          Process { id: killQs; running: false; command: ["kill", Quickshell.processId] }
         }
     }
 

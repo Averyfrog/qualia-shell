@@ -1,18 +1,31 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Effects
 import qs.components
 
 Menu {
   id: menu
   popupType: Popup.Window
-  implicitWidth: 180
-  background: StyledRect {
-    topLeftRadius: 4
+  implicitWidth: 220
+  background: Item {
+    RectangularShadow {
+      anchors.fill: back
+      radius: back.radius
+      opacity: 0.7
+    }
+    StyledRect {
+      id: back
+      topLeftRadius: 4
+      radius: 12
+      anchors.margins: menu.padding
+    }
   }
+
+  padding: 5
 
   property string name: title
 
-  onOpened: console.log(title)
+  font.family: 'Roboto Mono'
 
   delegate: StyledMenuItem {
     id: menuItem
@@ -24,6 +37,7 @@ Menu {
         text: menuItem.text
         anchors.left: parent.left
         anchors.leftMargin: 8
+        font.family: menu.font.family
       }
     }
 
@@ -38,7 +52,7 @@ Menu {
       verticalAlignment: Text.AlignVCenter
     }
   }
-
+  
   transformOrigin: Item.TopLeft
 
   exit: Transition {
@@ -53,4 +67,5 @@ Menu {
     NumberAnimation { property: "scale"; from: 0.9; to: 1.0; duration: 100
       easing.bezierCurve: [ .59,.07,.18,1.37 ] }
   }
+  
 }

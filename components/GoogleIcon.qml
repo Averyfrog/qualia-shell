@@ -1,8 +1,9 @@
 import QtQuick
 
 StyledLabel {
+  width: implicitWidth
   font {
-    pixelSize: 16
+    pixelSize: 18
     family: "Material Symbols Rounded"
   }
 

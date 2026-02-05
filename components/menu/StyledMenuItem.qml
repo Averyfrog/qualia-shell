@@ -10,12 +10,15 @@ MenuItem {
   property color color: colors.base05
   property color hoverColor: colors.accent  
 
+  font.family: menu.font.family
+
   background: StyledRect {
     color: item.highlighted ? colors.base02 : 'transparent'
     anchors.margins: 4
     radius: 8
   }
   contentItem: RowLayout {
+    anchors.margins: 10
     anchors.fill: parent
     anchors.leftMargin: item.highlighted ? 16 : 8
     Behavior on anchors.leftMargin {
@@ -39,6 +42,8 @@ MenuItem {
       Layout.fillWidth: true
       Layout.fillHeight: true
       StyledLabel {
+        font.family: item.font.family
+        font.pixelSize: 11
         text: item.text
         color: item.highlighted ? item.hoverColor : item.color
         //verticalAlignment: Text.AlignVCenter
