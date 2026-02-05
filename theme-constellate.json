@@ -1,0 +1,20 @@
+{
+  "base00": "#191724",
+  "base01": "#1f1d2e",
+  "base02": "#26233a",
+  "base03": "#6e6a86",
+  "base04": "#908caa",
+  "base05": "#e0def4",
+  "base06": "#e0def4",
+  "base07": "#524f67",
+  "red": "#eb6f92",
+  "orange": "#f6c177",
+  "yellow": "#ebbcba",
+  "green": "#31748f",
+  "blue": "#9ccfd8",
+  "purple": "#c4a7e7",
+  "base0E": "#f6c177",
+  "base0F": "#524f67",
+  
+  "accent": "#eb6f92"
+}
