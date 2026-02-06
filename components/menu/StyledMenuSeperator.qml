@@ -6,6 +6,7 @@ MenuSeparator {
   contentItem: StyledRect {
     anchors.leftMargin: 10
     anchors.rightMargin: 10
+    anchors.fill: parent
     color: colors.base02
   }
 }

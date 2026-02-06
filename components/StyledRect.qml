@@ -5,7 +5,7 @@ Rectangle {
   radius: 16
   color: colors.base00
 
-  anchors.fill: parent
+  //anchors.fill: parent
 
   Behavior on color {
     ColorAnimation {

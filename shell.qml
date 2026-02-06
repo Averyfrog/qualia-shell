@@ -2,6 +2,7 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 import qs.components.menu
+import qs.lockscreen
 
 ShellRoot {
   id: root
@@ -29,20 +30,24 @@ ShellRoot {
 
     color: 'transparent'
 
+    Locker { id: lock }
+
     StyledMenu { 
       id: testMenu
-      StyledMenuItem { text: 'Lock'; gIcon: 'lock'; hoverColor: colors.green }
+      StyledMenuItem { text: 'Lock'; gIcon: 'lock'; hoverColor: colors.green; onClicked: lock.lock() }
       StyledMenuItem { text: 'Sleep'; gIcon: 'moon_stars'; hoverColor: colors.yellow; onClicked: sleep.running = true }
       Process { id: sleep; running: false; command: ["systemctl", "suspend" ] }
       StyledMenuItem { text: 'Log Out'; gIcon: 'logout'; hoverColor: colors.blue }
       StyledMenuItem { text: 'Power Off'; gIcon: 'power_settings_new'; color: colors.red; hoverColor: color }
+
       StyledMenuSeperator {}
         StyledMenu {
           title: 'More..'
 
           StyledMenuItem { text: 'New terminal Session'; gIcon: 'terminal'; hoverColor: colors.blue; onClicked: termExec.running = true }
-          Process { id: termExec; running: false; command: ["hyprctl", "dispatch", "exec", "kitty"] }
           StyledMenuItem { text: 'Exit Quickshell'; gIcon: 'computer_cancel'; color: colors.red; hoverColor: color; onClicked: killQs.running = true }
+
+          Process { id: termExec; running: false; command: ["hyprctl", "dispatch", "exec", "kitty"] }
           Process { id: killQs; running: false; command: ["kill", Quickshell.processId] }
         }
     }

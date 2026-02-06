@@ -17,6 +17,7 @@ Menu {
       id: back
       topLeftRadius: 4
       radius: 12
+      anchors.fill: parent 
       anchors.margins: menu.padding
     }
   }
