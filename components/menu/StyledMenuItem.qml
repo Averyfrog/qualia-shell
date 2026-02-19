@@ -14,7 +14,11 @@ MenuItem {
 
   background: StyledRect {
     color: item.highlighted ? colors.base02 : 'transparent'
-    anchors.margins: 4
+
+    anchors {
+      fill: parent
+      margins: 4
+    }
     radius: 8
   }
   contentItem: RowLayout {

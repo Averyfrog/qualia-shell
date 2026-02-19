@@ -6,7 +6,7 @@ import qs.components
 Menu {
   id: menu
   popupType: Popup.Window
-  implicitWidth: 220
+  implicitWidth: 230
   background: Item {
     RectangularShadow {
       anchors.fill: back
@@ -17,12 +17,16 @@ Menu {
       id: back
       topLeftRadius: 4
       radius: 12
-      anchors.fill: parent 
+      anchors.fill: parent
       anchors.margins: menu.padding
+      border {
+        width: 2
+        color: colors.base02
+      }
     }
   }
 
-  padding: 5
+  padding: 10
 
   property string name: title
 
@@ -47,13 +51,13 @@ Menu {
       text: 'keyboard_arrow_right'
       font.pixelSize: 20
       anchors {
-        right: parent.right 
+        right: parent.right
         rightMargin: 8
       }
       verticalAlignment: Text.AlignVCenter
     }
   }
-  
+
   transformOrigin: Item.TopLeft
 
   exit: Transition {
@@ -68,5 +72,5 @@ Menu {
     NumberAnimation { property: "scale"; from: 0.9; to: 1.0; duration: 100
       easing.bezierCurve: [ .59,.07,.18,1.37 ] }
   }
-  
+
 }

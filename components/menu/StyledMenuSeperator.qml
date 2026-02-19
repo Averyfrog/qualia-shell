@@ -3,9 +3,11 @@ import QtQuick.Controls
 import qs.components
 
 MenuSeparator {
+
+  height: 14
+
   contentItem: StyledRect {
-    anchors.leftMargin: 10
-    anchors.rightMargin: 10
+    anchors.margins: 6
     anchors.fill: parent
     color: colors.base02
   }
