@@ -1,65 +1,111 @@
 import Quickshell
 import Quickshell.Io
+import Quickshell.Hyprland
 import QtQuick
 import qs.components.menu
 import qs.lockscreen
+import qs.skyblock
 
 ShellRoot {
-  id: root
+    id: root
 
-  FileView {
-    id: themeFile
-    path: Qt.resolvedUrl("./theme-constellate.json")
-    watchChanges: true
-    onFileChanged: reload()
-    blockLoading: true
-  }
-
-  property var colors: JSON.parse(themeFile.text())
-
-  PanelWindow {
-    anchors {
-      top: true
-      left: true
-      bottom: true
-      right: true
+    FileView {
+        id: themeFile
+        path: Qt.resolvedUrl("./theme.json")
+        watchChanges: true
+        onFileChanged: reload()
+        blockLoading: true
     }
 
-    aboveWindows: false
-    exclusionMode: ExclusionMode.Ignore
+    property var theme: JSON.parse(themeFile.text())
 
-    color: 'transparent'
+    PanelWindow {
+        anchors {
+            top: true
+            left: true
+            bottom: true
+            right: true
+        }
 
-    Locker { id: lock }
+        aboveWindows: false
+        exclusionMode: ExclusionMode.Ignore
 
-    StyledMenu { 
-      id: testMenu
-      StyledMenuItem { text: 'Lock'; gIcon: 'lock'; hoverColor: colors.green; onClicked: lock.lock() }
-      StyledMenuItem { text: 'Sleep'; gIcon: 'moon_stars'; hoverColor: colors.yellow; onClicked: sleep.running = true }
-      Process { id: sleep; running: false; command: ["systemctl", "suspend" ] }
-      StyledMenuItem { text: 'Log Out'; gIcon: 'logout'; hoverColor: colors.blue }
-      StyledMenuItem { text: 'Power Off'; gIcon: 'power_settings_new'; color: colors.red; hoverColor: color }
+        color: 'transparent'
 
-      StyledMenuSeperator {}
+        Locker {
+            id: lock
+        }
+
+        SbInfo {}
+
         StyledMenu {
-          title: 'More..'
+            id: testMenu
+            StyledMenuItem {
+                text: 'Lock'
+                gIcon: 'lock'
+                onClicked: lock.lock()
+            }
+            StyledMenuItem {
+                text: 'Sleep'
+                gIcon: 'moon_stars'
+                hoverColor: theme.secondary
+                onClicked: Hyprland.dispatch("exec systemctl suspend")
+            }
+            StyledMenuItem {
+                text: 'Log Out'
+                gIcon: 'logout'
+                hoverColor: theme.tertiary
+                onClicked: Hyprland.dispatch("exec exit")
+            }
+            StyledMenuItem {
+                text: 'Restart'
+                gIcon: 'restart_alt'
+                hoverColor: theme.error
+                onClicked: Hyprland.dispatch("exec reboot")
+            }
+            StyledMenuItem {
+                text: 'Power Off'
+                gIcon: 'power_settings_new'
+                hoverColor: theme.error
+                onClicked: Hyprland.dispatch("exec poweroff")
+            }
 
-          StyledMenuItem { text: 'New terminal Session'; gIcon: 'terminal'; hoverColor: colors.blue; onClicked: termExec.running = true }
-          StyledMenuItem { text: 'Exit Quickshell'; gIcon: 'computer_cancel'; color: colors.red; hoverColor: color; onClicked: killQs.running = true }
+            StyledMenuSeperator {}
+            StyledMenu {
+                title: 'More..'
 
-          Process { id: termExec; running: false; command: ["hyprctl", "dispatch", "exec", "kitty"] }
-          Process { id: killQs; running: false; command: ["kill", Quickshell.processId] }
+                StyledMenuItem {
+                    text: 'New terminal Session'
+                    gIcon: 'terminal'
+                    onClicked: Hyprland.dispatch("exec kitty")
+                }
+                StyledMenuItem {
+                    text: 'Exit Quickshell'
+                    gIcon: 'computer_cancel'
+                    hoverColor: theme.error
+                    onClicked: Qt.quit()
+                }
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            onClicked: mouse => {
+                if (mouse.button === Qt.RightButton) {
+                    testMenu.popup();
+                }
+            }
         }
     }
 
-    MouseArea {
-      anchors.fill: parent
-      acceptedButtons: Qt.LeftButton | Qt.RightButton
-      onClicked: mouse => {
-        if (mouse.button === Qt.RightButton) {
-          testMenu.popup()
+    property string user
+    Process {
+        id: usrGet
+        running: true
+        command: ["whoami"]
+        stdout: StdioCollector {
+            onStreamFinished: root.user = this.text.split('\n')[0]
         }
-      }
     }
-  }
 }

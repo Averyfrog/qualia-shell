@@ -9,6 +9,6 @@ MenuSeparator {
   contentItem: StyledRect {
     anchors.margins: 6
     anchors.fill: parent
-    color: colors.base02
+    color: theme.surface_container_high
   }
 }

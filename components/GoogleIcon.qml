@@ -7,7 +7,12 @@ StyledLabel {
     family: "Material Symbols Rounded"
   }
 
-  color: colors.base04
+  color: theme.on_surface_variant
   text: "add_circle"
 
+  Behavior on rotation {
+    PropertyAnimation {
+      duration: 50
+    }
+  }
 }

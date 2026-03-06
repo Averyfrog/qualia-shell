@@ -7,13 +7,12 @@ MenuItem {
   id: item
   property string gIcon: "add_circle"
   height: 40
-  property color color: colors.base05
-  property color hoverColor: colors.accent  
+  property color hoverColor: theme.primary
 
   font.family: menu.font.family
 
   background: StyledRect {
-    color: item.highlighted ? colors.base02 : 'transparent'
+    color: item.highlighted ? hoverColor: 'transparent'
 
     anchors {
       fill: parent
@@ -33,11 +32,11 @@ MenuItem {
     Rectangle {
       color: 'transparent'
       Layout.fillHeight: true
-      width: 24
+      implicitWidth: 24
       GoogleIcon {
         text: item.gIcon
         anchors.centerIn: parent
-        color: item.highlighted ? item.hoverColor : item.color
+        color: item.highlighted ? theme.on_primary : item.hoverColor
         opacity: item.highlighted ? 1 : 0.8
       }
     }
@@ -49,7 +48,7 @@ MenuItem {
         font.family: item.font.family
         font.pixelSize: 11
         text: item.text
-        color: item.highlighted ? item.hoverColor : item.color
+        color: item.highlighted ? theme.on_primary : item.hoverColor
         //verticalAlignment: Text.AlignVCenter
         anchors.verticalCenter: parent.verticalCenter
       }

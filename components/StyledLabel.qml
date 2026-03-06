@@ -2,11 +2,13 @@
 import QtQuick
 
 Text {
-  color: colors.base05
-  width: parent.width - 16
+  color: theme.on_surface
+  width: Math.min(implicitWidth, parent.width - 16)
   elide: Text.ElideRight
 
   font.pixelSize: 12
+  //font.family: "Roboto Mono"
+  textFormat: Text.MarkdownText
 
   Behavior on color {
     ColorAnimation {

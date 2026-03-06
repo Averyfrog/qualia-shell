@@ -1,9 +1,8 @@
 import QtQuick
-import QtQuick.Layouts
 
 Rectangle {
   radius: 16
-  color: colors.base00
+  color: theme.surface_container
 
   //anchors.fill: parent
 
@@ -13,4 +12,15 @@ Rectangle {
     }
   }
 
+  Behavior on implicitWidth {
+    PropertyAnimation {
+      duration: 100
+    }
+  }
+
+  Behavior on implicitHeight {
+    PropertyAnimation {
+      duration: 100
+    }
+  }
 }

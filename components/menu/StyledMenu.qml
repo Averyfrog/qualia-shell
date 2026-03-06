@@ -19,10 +19,7 @@ Menu {
       radius: 12
       anchors.fill: parent
       anchors.margins: menu.padding
-      border {
-        width: 2
-        color: colors.base02
-      }
+      color: theme.surface
     }
   }
 
@@ -39,6 +36,7 @@ Menu {
       color: 'transparent'
       StyledLabel {
         anchors.verticalCenter: parent.verticalCenter
+        color: menuItem.highlighted ? theme.on_primary : theme.primary
         text: menuItem.text
         anchors.left: parent.left
         anchors.leftMargin: 8
