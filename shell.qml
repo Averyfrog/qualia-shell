@@ -10,6 +10,8 @@ import qs.globals
 ShellRoot {
     id: root
 
+    property string configDir: "/home/" + user.name + "/.config/qualia-shell"
+
     FileView {
         id: themeFile
         path: Qt.resolvedUrl("theme.json")
@@ -20,7 +22,7 @@ ShellRoot {
 
     FileView {
       id: settingsFile
-      path: Qt.resolvedUrl("settings.json")
+      path: root.configDir + "/settings.json"
       watchChanges: true
       onFileChanged: reload()
       blockLoading: true
