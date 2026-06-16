@@ -18,6 +18,6 @@ StyledRect {
   Image {
     anchors.fill: parent
     fillMode: Image.PreserveAspectFit
-    source: "./assets/" + face + ".png"
+    source: face ? "./assets/" + face + ".png" : ""
   }
 }

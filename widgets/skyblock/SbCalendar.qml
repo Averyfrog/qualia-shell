@@ -6,7 +6,7 @@ import qs.components
 
 Rectangle {
   Layout.fillHeight: true
-  implicitWidth: parent.width * 0.6
+  implicitWidth: sb.vertical ? parent.width : parent.width * 0.6
   color: 'transparent'
 
   ColumnLayout {
@@ -155,7 +155,6 @@ Rectangle {
 
             opacity: day < sb.sbTime.day ? 0.4 : 1.0
 
-
             StyledRect {
               anchors.fill: parent
               //implicitWidth: 44
@@ -204,7 +203,7 @@ Rectangle {
                   if ((index+1) % 7 == 0) {
                     out.push("diversity_3")
                   }
-                  if ((sb.sbTime.daysToMonthStart + index - ((sb.sbTime.year-1)*372)) == 89) {
+                  if ((sb.sbTime.daysToMonthStart + index - ((sb.sbTime.year-1)*372)) == 88) {
                     out.push("how_to_vote")
                   }
                   return out
@@ -223,7 +222,7 @@ Rectangle {
                     GoogleIcon {
                       anchors.centerIn: parent
 
-                      font.pixelSize: 14
+                      font.pixelSize: sb.vertical ? 12 : 14
                       color: calendarItem.day == sb.sbTime.day ? theme.on_primary : theme.on_primary_container
                       text: modelData
                     }

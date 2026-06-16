@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "name": "go to shop",
+      "checked": false,
+      "subtasks": [
+        {
+          "name": "buy milk",
+          "checked": false
+        },
+        {
+          "name": "eat bread",
+          "checked": true
+        }
+      ],
+      "tags": ["shop", "school"]
+    },
+    {
+      "name": "go to school",
+      "checked": true,
+      "subtasks": [],
+      "tags": ["school"]
+    }
+  ],
+  "tags": {
+    "school": "#FF0000",
+    "shop": "#00FF00"
+  }
+}

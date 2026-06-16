@@ -50,7 +50,7 @@ StyledRect {
           pixelSize: 18
           bold: false
         }
-        text: sb.electData.success ? sb.electData.mayor.name : "..."
+        text: electData.success ? electData.mayor.name : "..."
       }
 
       McFace {
@@ -59,7 +59,7 @@ StyledRect {
           right: parent.right
         }
         size: 32
-        face: sb.electData.mayor.key
+        face: electData.mayor.key
       }
 
       StyledLabel {
@@ -80,7 +80,7 @@ StyledRect {
           margins: 8
         }
         size: 16
-        face: sb.electData.mayor.minister.key
+        face: electData.mayor.minister.key
       }
 
       StyledLabel {
@@ -90,7 +90,7 @@ StyledRect {
           right: parent.right
           leftMargin: 8
         }
-        text: sb.electData.mayor.minister.name
+        text: electData.success ? electData.mayor.minister.name : "..."
       }
 
       StyledLabel {
@@ -99,12 +99,18 @@ StyledRect {
          horizontalCenter: parent.horizontalCenter
          margins: 8
         }
-        text: ((sb.sbTime.year-1) * 372) + 89 - sb.sbTime.totalDays + " Days left"
+        text: {
+          var daysToElection = ((sb.sbTime.year-1) * 372) + 88 - sb.sbTime.totalDays
+          if (daysToElection < 0) {
+            daysToElection += 372
+          }
+          return daysToElection + " Days Left."
+        }
       }
     }
   }
   ButtonArea {
-    onClicked: sb.viewedMayor = sb.electData.mayor
+    onClicked: sb.viewedMayor = electData.success ? electData.mayor : null
     defColor: theme.surface_container_high
   }
 }

@@ -1,0 +1,1002 @@
+{
+  "0": {
+    "day": {
+      "label": "Sunny",
+      "icon": "sunny"
+    },
+    "night": {
+      "label": "Clear skies",
+      "icon": "bedtime"
+    }
+  },
+  "1": {
+    "day": {
+      "label": "Sunny with clouds",
+      "icon": "partly_cloudy_day"
+    },
+    "night": {
+      "label": "Sky clearing",
+      "icon": "partly_cloudy_night"
+    }
+  },
+  "2": {
+    "day": {
+      "label": "Sunny",
+      "icon": "sunny"
+    },
+    "night": {
+      "label": "Clear skies",
+      "icon": "bedtime"
+    }
+  },
+  "3": {
+    "day": {
+      "label": "Cloudy day",
+      "icon": "Cloud"
+    },
+    "night": {
+      "label": "Cloudy night",
+      "icon": "cloud"
+    }
+  },
+  "4": {
+    "day": {
+      "label": "Smoky",
+      "icon": "airwave"
+    },
+    "night": {
+      "label": "Smoky",
+      "icon": "airwave"
+    }
+  },
+  "5": {
+    "day": {
+      "label": "Hazy",
+      "icon": "Dehaze"
+    },
+    "night": {
+      "label": "Hazy",
+      "icon": "Dehaze"
+    }
+  },
+  "6": {
+    "day": {
+      "label": "Dusty",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Dusty",
+      "icon": "snowing"
+    }
+  },
+  "7": {
+    "day": {
+      "label": "Windy, raising dust",
+      "icon": "air"
+    },
+    "night": {
+      "label": "Windy, raising dust",
+      "icon": "air"
+    }
+  },
+  "8": {
+    "day": {
+      "label": "Dust whirls",
+      "icon": "tornado"
+    },
+    "night": {
+      "label": "Dust whirls",
+      "icon": "tornado"
+    }
+  },
+  "9": {
+    "day": {
+      "label": "Dust storm",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Dust storm",
+      "icon": "snowing_heavy"
+    }
+  },
+  "10": {
+    "day": {
+      "label": "Mist",
+      "icon": "mist"
+    },
+    "night": {
+      "label": "Mist",
+      "icon": "mist"
+    }
+  },
+  "11": {
+    "day": {
+      "label": "Patches of fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Patches of fog",
+      "icon": "foggy"
+    }
+  },
+  "12": {
+    "day": {
+      "label": "Foggy",
+      "icon": "mist"
+    },
+    "night": {
+      "label": "Foggy",
+      "icon": "mist"
+    }
+  },
+  "13": {
+    "day": {
+      "label": "Lightning",
+      "icon": "bolt"
+    },
+    "night": {
+      "label": "Lightning",
+      "icon": "bolt"
+    }
+  },
+  "14": {
+    "day": {
+      "label": "Precipitation soon",
+      "icon": "partly_cloudy_day"
+    },
+    "night": {
+      "label": "Precipitation soon",
+      "icon": "partly_cloudy_night"
+    }
+  },
+  "15": {
+    "day": {
+      "label": "Precipitation soon",
+      "icon": "partly_cloudy_day"
+    },
+    "night": {
+      "label": "Precipitation soon",
+      "icon": "partly_cloudy_night"
+    }
+  },
+  "16": {
+    "day": {
+      "label": "Precipitation soon",
+      "icon": "partly_cloudy_day"
+    },
+    "night": {
+      "label": "Precipitation soon",
+      "icon": "partly_cloudy_night"
+    }
+  },
+  "17": {
+    "day": {
+      "label": "Thunderstorm",
+      "icon": "thunderstorm"
+    },
+    "night": {
+      "label": "Thunderstorm",
+      "icon": "thunderstorm"
+    }
+  },
+  "18": {
+    "day": {
+      "label": "Sudden wind bursts",
+      "icon": "air"
+    },
+    "night": {
+      "label": "Sudden wind bursts",
+      "icon": "air"
+    }
+  },
+  "19": {
+    "day": {
+      "label": "Tornado",
+      "icon": "tornado"
+    },
+    "night": {
+      "label": "Tornado",
+      "icon": "tornado"
+    }
+  },
+  "20": {
+    "day": {
+      "label": "Drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Drizzle",
+      "icon": "rainy"
+    }
+  },
+  "21": {
+    "day": {
+      "label": "Rain",
+      "icon": "Rainy"
+    },
+    "night": {
+      "label": "Rain",
+      "icon": "Rainy"
+    }
+  },
+  "22": {
+    "day": {
+      "label": "Light snow",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Light snow",
+      "icon": "snowing"
+    }
+  },
+  "23": {
+    "day": {
+      "label": "Mixed Precipitation",
+      "icon": "weather_mix"
+    },
+    "night": {
+      "label": "Mixed Precipitation",
+      "icon": "weather_mix"
+    }
+  },
+  "24": {
+    "day": {
+      "label": "Freezing rain",
+      "icon": "rainy_snow"
+    },
+    "night": {
+      "label": "Freezing rain",
+      "icon": "rainy_snow"
+    }
+  },
+  "25": {
+    "day": {
+      "label": "Showers",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Showers",
+      "icon": "rainy"
+    }
+  },
+  "26": {
+    "day": {
+      "label": "Snow",
+      "icon": "weather_snowy"
+    },
+    "night": {
+      "label": "Snow",
+      "icon": "weather_snowy"
+    }
+  },
+  "27": {
+    "day": {
+      "label": "Hail",
+      "icon": "weather_hail"
+    },
+    "night": {
+      "label": "Hail",
+      "icon": "weather_hail"
+    }
+  },
+  "28": {
+    "day": {
+      "label": "Fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Fog",
+      "icon": "foggy"
+    }
+  },
+  "29": {
+    "day": {
+      "label": "Thunderstorm",
+      "icon": "thunderstorm"
+    },
+    "night": {
+      "label": "Thunderstorm",
+      "icon": "thunderstorm"
+    }
+  },
+  "30": {
+    "day": {
+      "label": "Moderate duststorm",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Moderate duststorm",
+      "icon": "snowing"
+    }
+  },
+  "31": {
+    "day": {
+      "label": "Moderate duststorm",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Moderate duststorm",
+      "icon": "snowing"
+    }
+  },
+  "32": {
+    "day": {
+      "label": "Moderate duststorm",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Moderate duststorm",
+      "icon": "snowing"
+    }
+  },
+  "33": {
+    "day": {
+      "label": "Severe duststorm",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Severe duststorm",
+      "icon": "snowing_heavy"
+    }
+  },
+  "34": {
+    "day": {
+      "label": "Severe duststorm",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Severe duststorm",
+      "icon": "snowing_heavy"
+    }
+  },
+  "35": {
+    "day": {
+      "label": "Severe duststorm",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Severe duststorm",
+      "icon": "snowing_heavy"
+    }
+  },
+  "36": {
+    "day": {
+      "label": "Light blowing snow",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Light blowing snow",
+      "icon": "snowing"
+    }
+  },
+  "37": {
+    "day": {
+      "label": "Heavy drifting snow",
+      "icon": "mode_cool"
+    },
+    "night": {
+      "label": "Heavy drifting snow",
+      "icon": "mode_cool"
+    }
+  },
+  "38": {
+    "day": {
+      "label": "Light blowing snow",
+      "icon": "snowing"
+    },
+    "night": {
+      "label": "Light blowing snow",
+      "icon": "snowing"
+    }
+  },
+  "39": {
+    "day": {
+      "label": "Heavy drifting snow",
+      "icon": "mode_cool"
+    },
+    "night": {
+      "label": "Heavy drifting snow",
+      "icon": "mode_cool"
+    }
+  },
+  "40": {
+    "day": {
+      "label": "Fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Fog",
+      "icon": "foggy"
+    }
+  },
+  "41": {
+    "day": {
+      "label": "Patchy fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Patchy fog",
+      "icon": "foggy"
+    }
+  },
+  "42": {
+    "day": {
+      "label": "Decreasing fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Decreasing fog",
+      "icon": "foggy"
+    }
+  },
+  "43": {
+    "day": {
+      "label": "Thick decreasing fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Thick decreasing fog",
+      "icon": "foggy"
+    }
+  },
+  "44": {
+    "day": {
+      "label": "Fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Fog",
+      "icon": "foggy"
+    }
+  },
+  "45": {
+    "day": {
+      "label": "Thick fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Thick fog",
+      "icon": "foggy"
+    }
+  },
+  "46": {
+    "day": {
+      "label": "Increasing fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Increasing fog",
+      "icon": "foggy"
+    }
+  },
+  "47": {
+    "day": {
+      "label": "Thick increasing fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Thick increasing fog",
+      "icon": "foggy"
+    }
+  },
+  "48": {
+    "day": {
+      "label": "Frosty fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Frosty fog",
+      "icon": "foggy"
+    }
+  },
+  "49": {
+    "day": {
+      "label": "Thick frosty fog",
+      "icon": "foggy"
+    },
+    "night": {
+      "label": "Thick frosty fog",
+      "icon": "foggy"
+    }
+  },
+  "50": {
+    "day": {
+      "label": "Slight patchy drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Slight patchy drizzle",
+      "icon": "rainy"
+    }
+  },
+  "51": {
+    "day": {
+      "label": "Slight drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Slight drizzle",
+      "icon": "rainy"
+    }
+  },
+  "52": {
+    "day": {
+      "label": "Patchy drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Patchy drizzle",
+      "icon": "rainy"
+    }
+  },
+  "53": {
+    "day": {
+      "label": "Drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Drizzle",
+      "icon": "rainy"
+    }
+  },
+  "54": {
+    "day": {
+      "label": "Heavy patchy drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Heavy patchy drizzle",
+      "icon": "rainy"
+    }
+  },
+  "55": {
+    "day": {
+      "label": "Heavy drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Heavy drizzle",
+      "icon": "rainy"
+    }
+  },
+  "56": {
+    "day": {
+      "label": "Freezing drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Freezing drizzle",
+      "icon": "rainy"
+    }
+  },
+  "57": {
+    "day": {
+      "label": "Heavy freezing drizzle",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Heavy freezing drizzle",
+      "icon": "rainy"
+    }
+  },
+  "58": {
+    "day": {
+      "label": "Drizzle & rain",
+      "icon": "rainy_snow"
+    },
+    "night": {
+      "label": "Drizzle & rain",
+      "icon": "rainy_snow"
+    }
+  },
+  "59": {
+    "day": {
+      "label": "Heavy drizzle & rain",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Heavy drizzle & rain",
+      "icon": "rainy_light"
+    }
+  },
+  "60": {
+    "day": {
+      "label": "Slight patchy rain",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Slight patchy rain",
+      "icon": "rainy"
+    }
+  },
+  "61": {
+    "day": {
+      "label": "Slight rain",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Slight rain",
+      "icon": "rainy"
+    }
+  },
+  "62": {
+    "day": {
+      "label": "Patchy rain",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Patchy rain",
+      "icon": "rainy_light"
+    }
+  },
+  "63": {
+    "day": {
+      "label": "Rain",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Rain",
+      "icon": "rainy_light"
+    }
+  },
+  "64": {
+    "day": {
+      "label": "Heavy patchy rain",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Heavy patchy rain",
+      "icon": "rainy_heavy"
+    }
+  },
+  "65": {
+    "day": {
+      "label": "Heavy rain",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Heavy rain",
+      "icon": "rainy_heavy"
+    }
+  },
+  "66": {
+    "day": {
+      "label": "Freezing rain",
+      "icon": "rainy_snow"
+    },
+    "night": {
+      "label": "Freezing rain",
+      "icon": "rainy_snow"
+    }
+  },
+  "67": {
+    "day": {
+      "label": "Heavy freezing rain",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Heavy freezing rain",
+      "icon": "rainy"
+    }
+  },
+  "68": {
+    "day": {
+      "label": "Rain & Snow",
+      "icon": "rainy_snow"
+    },
+    "night": {
+      "label": "Rain & snow",
+      "icon": "rainy_snow"
+    }
+  },
+  "69": {
+    "day": {
+      "label": "Heavy rain & snow",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Heavy rain & snow",
+      "icon": "rainy_light"
+    }
+  },
+  "70": {
+    "day": {
+      "label": "Slight patchy snow",
+      "icon": "sunny_snowing"
+    },
+    "night": {
+      "label": "Slight patchy snow",
+      "icon": "snowing"
+    }
+  },
+  "71": {
+    "day": {
+      "label": "Slight snow",
+      "icon": "sunny_snowing"
+    },
+    "night": {
+      "label": "Slight snow",
+      "icon": "snowing"
+    }
+  },
+  "72": {
+    "day": {
+      "label": "Patchy snow",
+      "icon": "weather_snowy"
+    },
+    "night": {
+      "label": "Patchy snow",
+      "icon": "weather_snowy"
+    }
+  },
+  "73": {
+    "day": {
+      "label": "snow",
+      "icon": "weather_snowy"
+    },
+    "night": {
+      "label": "snow",
+      "icon": "weather_snowy"
+    }
+  },
+  "74": {
+    "day": {
+      "label": "Heavy patchy snow",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Heavy patchy snow",
+      "icon": "snowing_heavy"
+    }
+  },
+  "75": {
+    "day": {
+      "label": "Heavy snow",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Heavy snow",
+      "icon": "snowing_heavy"
+    }
+  },
+  "76": {
+    "day": {
+      "label": "Glittering mist",
+      "icon": "mist"
+    },
+    "night": {
+      "label": "Glittering mist",
+      "icon": "moon_stars"
+    }
+  },
+  "77": {
+    "day": {
+      "label": "Ice grains",
+      "icon": "sunny_snowing"
+    },
+    "night": {
+      "label": "Ice grains",
+      "icon": "sunny_snowing"
+    }
+  },
+  "78": {
+    "day": {
+      "label": "Star-like snow",
+      "icon": "mode_cool"
+    },
+    "night": {
+      "label": "Star-like snow",
+      "icon": "mode_cool"
+    }
+  },
+  "79": {
+    "day": {
+      "label": "Hail",
+      "icon": "weather_hail"
+    },
+    "night": {
+      "label": "Hail",
+      "icon": "weather_hail"
+    }
+  },
+  "80": {
+    "day": {
+      "label": "Light showers",
+      "icon": "rainy"
+    },
+    "night": {
+      "label": "Light showers",
+      "icon": "rainy"
+    }
+  },
+  "81": {
+    "day": {
+      "label": "Moderate showers",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Moderate showers",
+      "icon": "rainy_light"
+    }
+  },
+  "82": {
+    "day": {
+      "label": "Violent showers",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Violent showers",
+      "icon": "rainy_heavy"
+    }
+  },
+  "83": {
+    "day": {
+      "label": "Slight sleet",
+      "icon": "weather_mix"
+    },
+    "night": {
+      "label": "Slight sleet",
+      "icon": "weather_mix"
+    }
+  },
+  "84": {
+    "day": {
+      "label": "Heavy sleet",
+      "icon": "weather_mix"
+    },
+    "night": {
+      "label": "Heavy sleet",
+      "icon": "weather_mix"
+    }
+  },
+  "85": {
+    "day": {
+      "label": "Snow showers",
+      "icon": "sunny_snowing"
+    },
+    "night": {
+      "label": "Snow showers",
+      "icon": "weather_snowy"
+    }
+  },
+  "86": {
+    "day": {
+      "label": "Heavy snow showers",
+      "icon": "snowing_heavy"
+    },
+    "night": {
+      "label": "Heavy snow showers",
+      "icon": "snowing_heavy"
+    }
+  },
+  "87": {
+    "day": {
+      "label": "Small hail",
+      "icon": "weather_mix"
+    },
+    "night": {
+      "label": "Small hail",
+      "icon": "weather_mix"
+    }
+  },
+  "88": {
+    "day": {
+      "label": "Heavy small hail",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Heavy small hail",
+      "icon": "rainy_light"
+    }
+  },
+  "89": {
+    "day": {
+      "label": "Hail showers",
+      "icon": "rainy_snow"
+    },
+    "night": {
+      "label": "Hail showers",
+      "icon": "rainy_snow"
+    }
+  },
+  "90": {
+    "day": {
+      "label": "Heavy hail showers",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Heavy hail showers",
+      "icon": "rainy_heavy"
+    }
+  },
+  "91": {
+    "day": {
+      "label": "Slight rain",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Slight rain",
+      "icon": "rainy_light"
+    }
+  },
+  "92": {
+    "day": {
+      "label": "Heavy rain",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Heavy rain",
+      "icon": "rainy_heavy"
+    }
+  },
+  "93": {
+    "day": {
+      "label": "Light sleet",
+      "icon": "weather_mix"
+    },
+    "night": {
+      "label": "Light sleet",
+      "icon": "weather_mix"
+    }
+  },
+  "94": {
+    "day": {
+      "label": "Heavy sleet",
+      "icon": "rainy_light"
+    },
+    "night": {
+      "label": "Heavy sleet",
+      "icon": "rainy_light"
+    }
+  },
+  "95": {
+    "day": {
+      "label": "Light thunderstorm",
+      "icon": "thunderstorm"
+    },
+    "night": {
+      "label": "Light thunderstorm",
+      "icon": "thunderstorm"
+    }
+  },
+  "96": {
+    "day": {
+      "label": "Light thunderstorm, hail",
+      "icon": "weather_hail"
+    },
+    "night": {
+      "label": "Light thunderstorm, hail",
+      "icon": "weather_hail"
+    }
+  },
+  "97": {
+    "day": {
+      "label": "Heavy thunderstorm",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Heavy thunderstorm",
+      "icon": "rainy_heavy"
+    }
+  },
+  "98": {
+    "day": {
+      "label": "Thunderstorm, dusty",
+      "icon": "rainy_heavy"
+    },
+    "night": {
+      "label": "Thunderstorm, dusty",
+      "icon": "rainy_heavy"
+    }
+  },
+  "99": {
+    "day": {
+      "label": "Heavy thunderstorm, hail",
+      "icon": "weather_hail"
+    },
+    "night": {
+      "label": "Heavy thunderstorm, hail",
+      "icon": "weather_hail"
+    }
+  }
+}

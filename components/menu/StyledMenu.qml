@@ -11,7 +11,8 @@ Menu {
     RectangularShadow {
       anchors.fill: back
       radius: back.radius
-      opacity: 0.7
+      opacity: 1.0
+      color: theme.shadow
     }
     StyledRect {
       id: back
@@ -36,7 +37,7 @@ Menu {
       color: 'transparent'
       StyledLabel {
         anchors.verticalCenter: parent.verticalCenter
-        color: menuItem.highlighted ? theme.on_primary : theme.primary
+        color: menuItem.highlighted ? theme.surface : theme.primary
         text: menuItem.text
         anchors.left: parent.left
         anchors.leftMargin: 8

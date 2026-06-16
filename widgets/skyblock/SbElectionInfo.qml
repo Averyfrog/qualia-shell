@@ -22,6 +22,12 @@ StyledRect {
     text: "Upcoming Election"
   }
 
+  StyledLabel {
+    anchors.centerIn: parent
+
+    text: electData.current == undefined ? "No current election!" : ""
+  }
+
   ColumnLayout {
     anchors.fill: parent
     anchors.topMargin: 32
@@ -29,7 +35,7 @@ StyledRect {
     spacing: 0
 
     Repeater {
-      model: sb.electData.current.candidates
+      model: electData.success ? electData.current.candidates : 0
       //model: 5
 
       delegate: StyledRect {
@@ -70,7 +76,7 @@ StyledRect {
           text: modelData.votes
         }
         ButtonArea {
-          onClicked: sb.viewedMayor = sb.electData.current.candidates[index]
+          onClicked: sb.viewedMayor = electData.current.candidates[index]
           defColor: theme.surface_container_high
         }
       }

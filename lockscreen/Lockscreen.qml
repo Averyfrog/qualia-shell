@@ -4,19 +4,20 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Effects
 import qs.components
+import qs.widgets.weather
 
 Rectangle { // Whole lockscreen
   anchors.fill: parent
 
-  color: theme.surface
+  color: theme.shadow
 
   Image { // Lockscreen wallpaper!
     id: background
     anchors.fill: parent
-    source: `/home/${user}/.cache/current_wallpaper`
+    source: `/home/${user.name}/.cache/current_wallpaper`
     fillMode: Image.PreserveAspectCrop
     layer.enabled: true
-    opacity: 0.7
+    opacity: 0.8
     layer.effect: MultiEffect {
       blurEnabled: true
       blur: 1.0
@@ -24,65 +25,56 @@ Rectangle { // Whole lockscreen
     }
   }
 
+  SystemClock {
+    id: time
+    precision: SystemClock.Seconds
+  }
+
   Rectangle {
-    id: center
+    anchors {
+      top: parent.top
+      horizontalCenter: parent.horizontalCenter
+      margins: 64
+    }
     color: 'transparent'
-    implicitWidth: 1000
-    implicitHeight: 800
-    anchors.centerIn: parent
+    width: 800
+    height: 800
     ColumnLayout {
-      anchors {
-        horizontalCenter: parent.horizontalCenter
-      }
+      width: parent.width
+      anchors.horizontalCenter: parent.horizontalCenter
+
       Rectangle {
+        implicitWidth: parent.width
+        implicitHeight: 32
         color: 'transparent'
-        Layout.fillWidth: true
-        implicitHeight: 30
+
         StyledLabel {
+          id: dateLabel
           anchors.centerIn: parent
-          width: 100
-          text: `Welcome back **${user}**! The time is currently:`
+          text: Qt.formatDate(time.date, "ddd dd MMM")
           font {
-            pixelSize: 24
-            bold: false
+            pixelSize: 32
           }
-          horizontalAlignment: Text.AlignHCenter
-          elide: Text.ElideNone
+          color: theme.secondary_fixed
         }
       }
-      StyledLabel {
-        Layout.alignment: Qt.AlignCenter
-        SystemClock {
-          id: time
-          precision: SystemClock.Seconds
-        }
-        text: Qt.formatDateTime(time.date, "hh:mm AP")
-        font {
-          pixelSize: 120
-          bold: true
-        }
-      }
-      StyledRect {
-        id: imgContainer
-        color: colors.base00
-        Layout.alignment: Qt.AlignHCenter
-        implicitWidth: 200
-        implicitHeight: width
-        radius: 200
-        Rectangle {
+
+      Rectangle {
+        implicitWidth: parent.width
+        implicitHeight: 164
+        color: 'transparent'
+
+        StyledLabel {
+          id: timeLabel
           anchors.centerIn: parent
-          width: imgContainer.width - 16
-          height: width
-          radius: parent.radius
-          ClippingWrapperRectangle { // Rounds the user pfp:W
-            radius: parent.radius - 8
-            width: imgContainer.width - 16
-            height: width
-            Image { //User pfp!!
-              fillMode: Image.PreserveAspectCrop
-              source: "/var/lib/AccountsService/icons/" + user
-            }
+          text: Qt.formatTime(time.date, "hh:mm")
+          font {
+            pixelSize: 128 + 32
+            weight: 400
           }
+          color: theme.primary_fixed
+
+          horizontalAlignment: Text.AlignHCenter
         }
       }
     }
@@ -112,6 +104,30 @@ Rectangle { // Whole lockscreen
       text: 'close'
       color: theme.error
       font.pixelSize: 24
+    }
+  }
+
+  Rectangle {
+    anchors {
+      left: parent.left
+      top: parent.top
+      bottom: parent.bottom
+      margins: 16
+    }
+
+    width: 500
+    color: 'transparent'
+
+    ColumnLayout {
+      anchors {
+        bottom: !settings.lockscreen.widgets.left.top ? parent.bottom : undefined
+      }
+      width: parent.width
+
+      HourlyWeather {
+        Layout.fillWidth: true
+        implicitHeight: 170
+      }
     }
   }
 }

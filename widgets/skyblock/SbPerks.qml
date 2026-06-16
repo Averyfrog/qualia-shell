@@ -1,13 +1,15 @@
 import Quickshell
+import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 import qs.components
 
-StyledRect {
+ClippingRectangle {
   id: perks
   Layout.fillHeight: true
   Layout.fillWidth: true
   color: theme.surface_container_high
+  radius: 16
 
   required property var mayor
 
@@ -33,7 +35,7 @@ StyledRect {
       bold: true
     }
     color: theme.on_surface_variant
-    text: perks.mayor.name + "'s Perks"
+    text: electData.success ? perks.mayor.name + "'s Perks" : "...'s Perks"
   }
   StyledLabel {
     anchors {
@@ -42,7 +44,7 @@ StyledRect {
       margins: 8
     }
     color: theme.on_surface_variant
-    text: mayor == sb.electData.mayor ? "current" : "potential"
+    text: mayor == electData.success ? (sb.electData.mayor ? "current" : "potential") : ""
   }
 
   Flickable {
@@ -54,7 +56,7 @@ StyledRect {
       id: perksList
       width: parent.width
       Repeater {
-        model: perks.mayor.perks
+        model: electData.success ? perks.mayor.perks : 0
 
         delegate: StyledRect {
           id: perkInfo

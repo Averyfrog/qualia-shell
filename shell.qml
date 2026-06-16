@@ -1,111 +1,168 @@
+//@ pragma DropExpensiveFonts
+
 import Quickshell
 import Quickshell.Io
-import Quickshell.Hyprland
 import QtQuick
-import qs.components.menu
-import qs.lockscreen
-import qs.skyblock
+import qs.bar
+import qs.desktop
+import qs.globals
 
 ShellRoot {
     id: root
 
     FileView {
         id: themeFile
-        path: Qt.resolvedUrl("./theme.json")
+        path: Qt.resolvedUrl("theme.json")
         watchChanges: true
         onFileChanged: reload()
         blockLoading: true
     }
 
-    property var theme: JSON.parse(themeFile.text())
+    FileView {
+      id: settingsFile
+      path: Qt.resolvedUrl("settings.json")
+      watchChanges: true
+      onFileChanged: reload()
+      blockLoading: true
 
-    PanelWindow {
-        anchors {
-            top: true
-            left: true
-            bottom: true
-            right: true
+      onAdapterUpdated: {
+        console.log("setting changed!");
+        writeAdapter()
+      }
+
+      JsonAdapter {
+        id: settings
+        property JsonObject general: JsonObject {
+          property bool animationsEnabled: true
+          property real animationSpeed: 1
+          property bool filledIcons: false
+
+          property string font: ""
+
+          property int rounding: 0
         }
 
-        aboveWindows: false
-        exclusionMode: ExclusionMode.Ignore
+        property JsonObject bar: JsonObject {
 
-        color: 'transparent'
+          property int side: 1
 
-        Locker {
-            id: lock
+          property bool moduleShadows: false
+          property list<int> moduleShadowOffset: [ 0, 0 ]
+
+          property list<string> leftModules: [
+            "CurrentApp",
+          ]
+
+          property list<string> centerModules: [
+            "Clock",
+            "Music",
+          ]
+
+          property list<string> rightModules: [
+            "Connections",
+            "Battery",
+          ]
         }
 
-        SbInfo {}
-
-        StyledMenu {
-            id: testMenu
-            StyledMenuItem {
-                text: 'Lock'
-                gIcon: 'lock'
-                onClicked: lock.lock()
+        property JsonObject weather: JsonObject {
+          property JsonObject location: JsonObject {
+            property bool useCoords: true
+            property JsonObject coordinates: JsonObject {
+              property string latitude: ""
+              property string longitude: ""
             }
-            StyledMenuItem {
-                text: 'Sleep'
-                gIcon: 'moon_stars'
-                hoverColor: theme.secondary
-                onClicked: Hyprland.dispatch("exec systemctl suspend")
-            }
-            StyledMenuItem {
-                text: 'Log Out'
-                gIcon: 'logout'
-                hoverColor: theme.tertiary
-                onClicked: Hyprland.dispatch("exec exit")
-            }
-            StyledMenuItem {
-                text: 'Restart'
-                gIcon: 'restart_alt'
-                hoverColor: theme.error
-                onClicked: Hyprland.dispatch("exec reboot")
-            }
-            StyledMenuItem {
-                text: 'Power Off'
-                gIcon: 'power_settings_new'
-                hoverColor: theme.error
-                onClicked: Hyprland.dispatch("exec poweroff")
-            }
-
-            StyledMenuSeperator {}
-            StyledMenu {
-                title: 'More..'
-
-                StyledMenuItem {
-                    text: 'New terminal Session'
-                    gIcon: 'terminal'
-                    onClicked: Hyprland.dispatch("exec kitty")
-                }
-                StyledMenuItem {
-                    text: 'Exit Quickshell'
-                    gIcon: 'computer_cancel'
-                    hoverColor: theme.error
-                    onClicked: Qt.quit()
-                }
-            }
+          }
         }
 
-        MouseArea {
-            anchors.fill: parent
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
-            onClicked: mouse => {
-                if (mouse.button === Qt.RightButton) {
-                    testMenu.popup();
-                }
+        property JsonObject lockscreen: JsonObject {
+          property JsonObject widgets: JsonObject {
+            property JsonObject left: JsonObject {
+              property bool top: true
+              property list<string> widgets: []
             }
+            property JsonObject right: JsonObject {
+              property bool top: false
+              property list<string> widgets: []
+            }
+          }
         }
+      }
     }
 
-    property string user
+    property bool settingsLoaded: settingsFile.loaded
+    // MAKE SURE settings are loaded before changing them PLEASE 🙏🙏
+    // it will reset ALL THE USER'S SETTINGS
+    // dw reading from settings is fine, but may report incorrect values for
+    // anything ran in the first couple secs
+
+    Music {
+      id: music
+    }
+
+    Weather {
+      id: weather
+    }
+
+    Tasks {
+      id: tasks
+    }
+
+    Desktop {}
+
+    Bar {}
+
+    property var theme: JSON.parse(themeFile.text())
+
+    property var electData: reloadSkyblockData()
+
+    function reloadSkyblockData() {
+      var req = new XMLHttpRequest();
+      req.open("GET", "https://api.hypixel.net/v2/resources/skyblock/election"); // No api key required.
+
+      root.electData = {
+        success: false
+      }
+
+      req.onreadystatechange = function() {
+
+        if (req.readyState == 4) {
+          root.electData = JSON.parse(req.responseText);
+
+          console.log("Skyblock data reloaded!");
+          //console.log(req.responseText);
+          //console.log(electData.mayor.name);
+        }
+      }
+
+      req.send()
+      console.log("Reloading skyblock data...");
+    }
+
+    property var easingOvershoot: [ 0.38, 1.21, 0.22, 1, 1 ,1 ]
+    property var easingBezier: [ 0.38, 1, 0.22, 1, 1 ,1 ]
+
+    property var user
     Process {
         id: usrGet
         running: true
-        command: ["whoami"]
+        command: ["sh", "-c", "userdbctl user $USER -j"]
         stdout: StdioCollector {
-            onStreamFinished: root.user = this.text.split('\n')[0]
+          onStreamFinished: {
+            var data = JSON.parse(this.text);
+
+            // all this JUST to get the pfp i couldnt think of a better way x.x
+            let pfpPaths = [
+              data.homeDirectory + "/.face",
+              data.homeDirectory + "/.face.icon",
+              "/var/lib/AccountsService/icons/ + user.name"
+            ];
+
+            var returnData = {
+              name: data.userName,
+              prettyName: data.realName
+            }
+            root.user = returnData
+          }
         }
     }
 }

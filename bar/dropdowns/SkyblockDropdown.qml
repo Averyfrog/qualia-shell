@@ -3,44 +3,26 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import qs.components
+import qs.widgets.skyblock
 
-FloatingWindow {
+Rectangle {
   id: sb
 
-  color: theme.surface
-
-  //anchors {
-  //  top: true
-  //}
-
-  minimumSize: Qt.size(800, 400)
-  maximumSize: Qt.size(800, 400)
-  //implicitWidth: 800
-  //implicitHeight: 400
-
-  FileView {
-      id: electionTestData
-      path: Qt.resolvedUrl("./testdata.json")
-      watchChanges: true
-      onFileChanged: reload()
-      blockLoading: true
+  anchors {
+    top: parent.top
+    margins: 40
   }
 
-  property var electData//: JSON.parse(electionTestData.text())
+  //color: theme.surface
+  color: 'transparent'
 
-  Component.onCompleted: {
-    var req = new XMLHttpRequest();
-    req.open("GET", "https://api.hypixel.net/v2/resources/skyblock/election"); // No api key required.
+  property bool vertical: parent.vertical
 
-    req.onreadystatechange = function() {
-      electData = JSON.parse(req.responseText);
-      console.log(req.responseText);
-      console.log(electData.mayor.name);
-    }
+  //minimumSize: vertical ? Qt.size(400, 800) : Qt.size(800, 400)
+  //maximumSize: vertical ? Qt.size(400, 800) : Qt.size(800, 400)
+  implicitWidth: vertical ? 400 : 800
+  implicitHeight: vertical ? 800 : 400
 
-    req.send()
-    skyblockTime()
-  }
 
   property list<string> months: [
     "Early Spring", "Spring", "Late Spring",
@@ -88,6 +70,7 @@ FloatingWindow {
     }
   }
 
+
   function mcToMarkdown(input) {
     let output = input.replace(/§./g, "");
     return output;
@@ -97,10 +80,12 @@ FloatingWindow {
 
   property var viewedMayor: electData.mayor
 
-  RowLayout {
+  GridLayout {
     anchors.fill: parent
     anchors.margins: sb.spacing
-    spacing: sb.spacing
+    rowSpacing: sb.spacing
+    columnSpacing: sb.spacing
+    columns: sb.vertical ? 1 : 2
 
     SbCalendar {}
 
@@ -126,7 +111,7 @@ FloatingWindow {
             SbElectionInfo {}
           }
         }
-        SbPerks { mayor: sb.viewedMayor }
+        SbPerks { mayor: electData.success ? sb.viewedMayor : null }
       }
     }
   }

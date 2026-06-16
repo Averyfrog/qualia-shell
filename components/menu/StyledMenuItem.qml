@@ -36,7 +36,7 @@ MenuItem {
       GoogleIcon {
         text: item.gIcon
         anchors.centerIn: parent
-        color: item.highlighted ? theme.on_primary : item.hoverColor
+        color: item.highlighted ? theme.surface : item.hoverColor
         opacity: item.highlighted ? 1 : 0.8
       }
     }
@@ -48,7 +48,7 @@ MenuItem {
         font.family: item.font.family
         font.pixelSize: 11
         text: item.text
-        color: item.highlighted ? theme.on_primary : item.hoverColor
+        color: item.highlighted ? theme.surface : item.hoverColor
         //verticalAlignment: Text.AlignVCenter
         anchors.verticalCenter: parent.verticalCenter
       }
