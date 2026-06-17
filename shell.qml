@@ -14,7 +14,7 @@ ShellRoot {
 
     FileView {
         id: themeFile
-        path: Qt.resolvedUrl("theme.json")
+        path: root.configDir + "/theme.json"
         watchChanges: true
         onFileChanged: reload()
         blockLoading: true
