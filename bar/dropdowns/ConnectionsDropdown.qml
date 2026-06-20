@@ -8,6 +8,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Qt.labs.folderlistmodel
 import qs.components
+import qs.notifications
 
 Rectangle {
   id: con
@@ -223,6 +224,26 @@ Rectangle {
       Layout.fillWidth: true
       Layout.fillHeight: true
       color: theme.surface_container_lowest
+
+      Flickable {
+        anchors.fill: parent
+        anchors.margins: 8
+        clip: true
+
+        contentWidth: width
+        contentHeight: notifColumn.height
+
+        ColumnLayout {
+          id: notifColumn
+          width: parent.width
+          Repeater {
+            model: notifServer.storedNotifs
+
+            delegate: Notif { stored: true }
+          }
+
+        }
+      }
     }
   }
 }

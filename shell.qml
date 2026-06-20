@@ -6,6 +6,7 @@ import QtQuick
 import qs.bar
 import qs.desktop
 import qs.globals
+import qs.notifications
 
 ShellRoot {
     id: root
@@ -88,6 +89,10 @@ ShellRoot {
             }
           }
         }
+
+        property JsonObject notifications: JsonObject {
+          property bool dnd: false
+        }
       }
     }
 
@@ -105,6 +110,10 @@ ShellRoot {
       id: weather
     }
 
+    NotifServer {
+      id: notifServer
+    }
+
     Tasks {
       id: tasks
     }
@@ -112,6 +121,8 @@ ShellRoot {
     Desktop {}
 
     Bar {}
+
+    NotifPanel {}
 
     property var theme: JSON.parse(themeFile.text())
 

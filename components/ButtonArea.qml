@@ -4,11 +4,18 @@ MouseArea {
   id: ma
   anchors.fill: parent
   hoverEnabled: true
-  onEntered: hover.start()
-  onExited: unhover.start()
+  onEntered: {
+    hover.start()
+    hovered = true
+  }
+  onExited: {
+    unhover.start()
+    hovered = false
+  }
 
   property color defColor: theme.surface_container
   property color hoverColor: theme.surface_variant
+  property bool hovered: false
 
   ColorAnimation {
     id: hover
