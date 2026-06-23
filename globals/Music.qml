@@ -10,6 +10,7 @@ Scope {
 
   property real accurateLength//: activePlayer.length
   property real accuratePosition//: activePlayer.position
+  property string currentTitle
 
   onActivePlayerChanged: {
     if (activePlayer) {
@@ -23,7 +24,8 @@ Scope {
       accurateLength = activePlayer.length
       accuratePosition = activePlayer.position
 
-      getLyrics(activePlayer.trackTitle, activePlayer.trackArtist)
+      if (currentTitle != activePlayer.trackTitle) getLyrics(activePlayer.trackTitle, activePlayer.trackArtist)
+      currentTitle = activePlayer.trackTitle
       console.log(activePlayer.trackArtUrl)
     }
   }
