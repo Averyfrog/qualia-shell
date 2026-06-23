@@ -40,9 +40,10 @@ Rectangle {
   implicitHeight: notifContent.height + 16
 
   Component.onCompleted: {
+    if (notification == null) instantClose()
     notification.closed.connect(instantClose)
-    x = modelData.timeLeft == modelData.totalTime ? 1000 : 0
-    opacity = modelData.timeLeft == modelData.totalTime ? 0 : 1
+    x = modelData.timeLeft == modelData.totalTime && !stored ? 1000 : 0
+    opacity = modelData.timeLeft == modelData.totalTime && !stored ? 0 : 1
 
     if (modelData.timeLeft == modelData.totalTime) {
       openerAnim.start()
@@ -58,7 +59,7 @@ Rectangle {
   }
 
   function instantClose() {
-    notifServer.remove(notification.id, stored)
+    notifServer.remove(notifRoot.modelData.id, stored)
   }
   PropertyAnimation {
     id: closerAnim
@@ -67,7 +68,7 @@ Rectangle {
     to: 0
     duration: 150
     onFinished: {
-      notifServer.remove(notification.id, stored)
+      notifServer.remove(notifRoot.modelData.id, stored)
     }
   }
   PropertyAnimation {
@@ -103,14 +104,14 @@ Rectangle {
       id: notifImage
       color: 'transparent'
 
-      implicitWidth: notifRoot.notification.image ? 72 : 0
+      implicitWidth: notifRoot.notification.image || notifRoot.notification.appIcon ? 72 : 0
       implicitHeight: width
 
       radius: 16
       opacity: nimg.status == Image.Ready ? 1 : 0
       Image {
         id: nimg
-        source: notifRoot.notification.image
+        source: notifRoot.notification.image ? notifRoot.notification.image : notifRoot.notification.appIcon
         fillMode: Image.PreserveAspectCrop
       }
     }
@@ -134,19 +135,45 @@ Rectangle {
 
           RowLayout {
             anchors.fill: parent
+            spacing: 0
 
-            StyledLabel {
-              id: summary
-              Layout.fillWidth: true
+            Rectangle {
+              implicitHeight: parent.height
+              implicitWidth: Math.min(summary.implicitWidth + 16, parent.width * 0.6)
+              color: 'transparent'
 
-              text: notifRoot.notification.summary
+              StyledLabel {
+                id: summary
 
-              font {
-                pixelSize: 14
-                bold: true
+                anchors {
+                  verticalCenter: parent.verticalCenter
+                }
+
+                text: notifRoot.notification.summary
+
+                font {
+                  pixelSize: 15
+                  weight: 600
+                }
+
               }
+            }
 
-              textFormat: Text.MarkdownText
+            Rectangle {
+              implicitHeight: parent.height
+              Layout.fillWidth: true
+              color: 'transparent'
+
+              StyledLabel {
+                anchors {
+                  verticalCenter: parent.verticalCenter
+                  left: parent.left
+                  leftMargin: -10
+                }
+                text: "· " + notifRoot.notification.appName + " · " + Qt.formatDateTime(notifRoot.modelData.time, "hh:mm")
+                elide: Text.ElideLeft
+                opacity: 0.7
+              }
             }
 
             Rectangle {
@@ -203,6 +230,10 @@ Rectangle {
 
             textFormat: Text.MarkdownText
             wrapMode: Text.Wrap
+
+            font {
+              pixelSize: 13
+            }
           }
         }
 

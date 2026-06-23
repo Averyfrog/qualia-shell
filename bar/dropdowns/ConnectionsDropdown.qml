@@ -82,8 +82,10 @@ Rectangle {
             id: dnd
             icon: on ? "do_not_disturb_on" : "do_not_disturb_off"
             text: on ? "Do Not Disturb" : "Notifications"
-
-            on: false
+            on: settings.notifications.dnd
+            onToggle: {
+              settings.notifications.dnd = !settings.notifications.dnd
+            }
           }
           SettingTile {
             id: darkMode
@@ -225,6 +227,29 @@ Rectangle {
       Layout.fillHeight: true
       color: theme.surface_container_lowest
 
+      Rectangle {
+        anchors.centerIn: parent
+        opacity: notifServer.storedNotifs == 0 || settings.notifications.dnd
+        width: parent.width
+        height: 200
+        color: 'transparent'
+
+        Behavior on opacity {
+          OpacityAnimator {
+            duration: 100
+          }
+        }
+
+        StyledLabel {
+          anchors.centerIn: parent
+          text: settings.notifications.dnd ? "Do not disturb is on." : "No notifications..."
+          font.pixelSize: 14
+          opacity: 0.7
+
+          noAnim: false
+        }
+      }
+
       Flickable {
         anchors.fill: parent
         anchors.margins: 8
@@ -237,10 +262,11 @@ Rectangle {
           id: notifColumn
           width: parent.width
           Repeater {
-            model: notifServer.storedNotifs
+            model: !settings.notifications.dnd ? notifServer.storedNotifs : undefined
 
             delegate: Notif { stored: true }
           }
+
 
         }
       }

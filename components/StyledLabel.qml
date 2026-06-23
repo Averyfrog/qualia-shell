@@ -3,7 +3,7 @@ import QtQuick
 Text {
   id: root
   color: theme.on_surface
-  width: Math.min(implicitWidth, parent.width - 16)
+  width: Math.min(implicitWidth, parent.width - 8)
   elide: Text.ElideRight
 
   font.pixelSize: 12
